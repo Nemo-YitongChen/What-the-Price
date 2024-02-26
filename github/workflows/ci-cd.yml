@@ -1,0 +1,36 @@
+name: CI/CD Pipeline
+
+run-name: ${{github.actor}} is testing CI/CD with Github Actions. 
+
+on:
+  push:
+    paths:
+      - '**.py'
+      - '!/docs/**'
+
+jobs:
+  check-bats-version:
+    runs-on: macos-latest
+    
+    steps:
+      uses: actions/checkout@v4
+
+      uses: actions/setup-node@3
+      with:
+        node-version: '14'
+
+     - run: npm install -g bats
+     - run bats -v
+     - run python --version
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+    - name: Test
+      run: npm --version
