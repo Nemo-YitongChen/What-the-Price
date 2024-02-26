@@ -1,14 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb 21 22:37:40 2024
-
-@author: nemo
-"""
-
 import requests
 from bs4 import BeautifulSoup
-# from myapp.models import Product  # Import your Django model
 
 def scrape_coles_product_page(URL):
     page = requests.get(URL)
