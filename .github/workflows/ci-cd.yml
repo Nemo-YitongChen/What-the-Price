@@ -9,7 +9,7 @@ on:
       - '!/docs/**'
 
 jobs:
-  check-bats-version:
+  build:
     runs-on: macos-latest
     
     steps:
