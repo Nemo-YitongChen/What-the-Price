@@ -9,7 +9,7 @@ on:
       - '!/docs/**'
 
 jobs:
-  build:
+  build_macos:
     runs-on: macos-latest
     
     steps:
@@ -23,14 +23,15 @@ jobs:
      - run bats -v
      - run python --version
 
-  build:
+  build_ubuntu:
+    
     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - name: Test
-      run: npm --version
+      steps:
+        - uses: actions/checkout@v2
+        - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+        - name: Test
+          run: npm --version
